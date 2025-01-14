@@ -1,0 +1,18 @@
+---
+title: "Introduction to Statistical Learning Book Exercises"
+author: "Kevin Sullivan"
+date: '2025-01-14'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Chapter 2: Statistical Learning**
+
+Chapter Topics: 
+
+1. 
+2. 
+
