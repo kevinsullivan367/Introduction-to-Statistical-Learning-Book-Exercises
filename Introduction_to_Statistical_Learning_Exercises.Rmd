@@ -2,7 +2,9 @@
 title: "Introduction to Statistical Learning Book Exercises"
 author: "Kevin Sullivan"
 date: '2025-01-14'
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -32,10 +34,13 @@ Chapter Topics:
 
 Practice Question: Load and Perform Exploratory Data Analysis
 
-```{r, eval = FALSE}
-# Load Data 
-
+```{r}
+# Load Data
 chap_two_data = College
+```
+
+
+```{r, eval = FALSE}
 
 head(chap_two_data)
 
