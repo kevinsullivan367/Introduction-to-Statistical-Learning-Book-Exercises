@@ -78,7 +78,73 @@ Chapter Topics:
 6. Potential Problems
 7. Comparison of Linear Regression and KNN
 
+Practice Question
+
+1. This question involves the use of simple linear regression on the Auto data set.
+(a) Use the lm() function to perform a simple linear regression with mpg as the response and horsepower as the predictor. Use the summary() function to print the results. Comment on the output. For example:
+i. Is there a relationship between the predictor and the re- sponse?
+ii. How strong is the relationship between the predictor and the response?
+iii. Is the relationship between the predictor and the response positive or negative?
+iv. What is the predicted mpg associated with a horsepower of 98? What are the associated 95 % confidence and prediction intervals?
 
 
+```{r}
+model1 = lm(mpg ~ horsepower, data = Auto)
+
+summary(model1)
+
+# MPG associated with a horsepower of 98
+
+mpg_98 = 39.935861 - (0.157845 * 98)
+
+mpg_98
+```
+
+Comment on Model Output:
+
+The horsepower variable has a negative coefficient which indicates that holding all else equal, a one unit increase in horsepower corresponds to a -0.157 unit decrease in mpg. This result is statistically significant at the p < 0.01 level. With an R^2 of 0.6049,the model appears to decently capture the variation in the data.
+
+
+(b) Plot the response and the predictor. Use the abline() function to display the least squares regression line.
+(c) Use the plot() function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.
+
+
+```{r}
+# Plot data with reg line
+plot(Auto$horsepower, Auto$mpg)
+abline(model1)
+
+# Diagnostic Plots
+
+plot(model1)
+```
+
+Based on the diagnostic plots it appears that a linear model might not be the best to use on this data. There appears to be a slight curvature to the data along with a fan-shaped pattern to the residuals that indicates that the conditions required for linear modeling may not hold here.
+
+
+10. This question should be answered using the Carseats data set.
+
+(a) Fit a multiple regression model to predict Sales using Price,
+Urban, and US.
+
+
+```{r}
+# Multiple Regression
+
+head(Carseats)
+
+mult_reg_model = lm(Sales ~ Price + Urban + US, data = Carseats)
+
+summary(mult_reg_model)
+```
+
+(b) Provide an interpretation of each coeﬀicient in the model. Be
+careful—some of the variables in the model are qualitative!
+
+Price: The negative and statistically significant coefficient indicates that (all else equal) a one unit increase in price corresponds to a -0.05 unit decrease in carseat sales.
+
+UrbanYes: Since Urban is a categorical variable with "no" being the reference category, the result in the model can be interpreted as: Compared to those who do not live in urban areas, those who do live in urban areas buy -0.02 less car seat units. This result is not statistically significant.
+
+USYes: Since US is a categorical variable with "no" being the reference category, the result in the model can be interpreted as: Compared to those who do not live in the US, those who do live in the US  buy 1.2 more car seat units. This result is statistically significant.
 
 
